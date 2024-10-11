@@ -1,20 +1,21 @@
 import jwt from 'jsonwebtoken'
 const KEY = 'diario'
 
-export default function gerarToken(userInfo) {
- return jwt.sign(userInfo, KEY )
+export  function gerarToken(resposta) {
+ return jwt.sign(resposta, KEY )
 }
 
-export default function Autenticar(req,resp,next) {
+export  function Autenticar(req,resp,next) {
+
     return autenticacao(req, resp, next)
 }
 
 
-export default function autenticacao(res, resp, next){
+export function autenticacao(req, resp, next){
 
     try {
         let token = req.headers['x-access-token']
-
+      
         if(token == undefined) 
             token =  req.query['x-access-token']
 
