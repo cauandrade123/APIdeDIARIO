@@ -29,10 +29,10 @@ export async function logarUser (user){
     let resposta = await conection.query(comando, [user.nome, user.senha])
 
 
-    let info =  resposta[0]
+    let linhas =  resposta[0]
 
 
-    return info
+    return linhas[0]
 
 }
 
